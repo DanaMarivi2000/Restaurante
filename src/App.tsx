@@ -36,15 +36,15 @@ function App() {
       order={order}
       removeItem={removeItem}
      />
+     <TipPercentageForm
+     setTip={setTip}
+     tip={tip}
+     />
      <OrderTotals 
      order={order}
      tip={tip}
      placeOrder={placeOrder}
      />
-      <TipPercentageForm
-      setTip={setTip}
-      tip={tip}
-      />
  </>
       ):
       (
