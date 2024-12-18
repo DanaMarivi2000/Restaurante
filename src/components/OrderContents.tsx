@@ -1,11 +1,11 @@
-import { MenuItem, OrderItem } from "../types"
+import {OrderItem } from "../types"
 // import React from 'react'
 import formatCurrency from '../helpers/index'
 
 
 type OrderContentsProps={
     order:OrderItem[]
-    removeItem:(id: MenuItem['id'])=>void
+    removeItem:(item:OrderItem)=>void
 }
 const OrderContents = ({order, removeItem}:OrderContentsProps) => {
   return (
@@ -18,7 +18,7 @@ const OrderContents = ({order, removeItem}:OrderContentsProps) => {
             <p>{item.name} {formatCurrency(item.price)}</p>
         <p className="font-black">Cantidad: {item.quantity} - {formatCurrency(item.quantity*item.price)}</p>
         </div>
-        <button className="bg-red-600 h-8 w-8 rounded-full text-white font-black" onClick={()=>removeItem(item.id)}>x</button>
+        <button className="bg-red-600 h-8 w-8 rounded-full text-white font-black" onClick={()=>removeItem(item)}>x</button>
        </div>
         ))}
        </div>

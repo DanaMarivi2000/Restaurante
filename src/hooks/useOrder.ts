@@ -24,8 +24,14 @@ const useOrder = () => {
         console.log(order)
     }
 
-    const removeItem=(id:MenuItem['id'])=>{
-          setOrder(order.filter(item=>item.id !== id))
+    const removeItem=(item:OrderItem)=>{
+          const itemExist=order.find(orderItem=>orderItem.id===item.id)
+          if(itemExist){
+            const updateItem=order.map(orderItem=>orderItem.id===item.id?{
+                ...orderItem, quantity:orderItem.quantity>1?orderItem.quantity-1:0
+            }:orderItem)
+              setOrder(updateItem.filter(orderItem=>orderItem.quantity>0))
+          }
     }
 
 
