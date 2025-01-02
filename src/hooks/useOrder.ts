@@ -34,7 +34,6 @@ const useOrder = () => {
           }
     }
 
-
     const placeOrder=()=>{
         setOrder([])
         setTip(0)
